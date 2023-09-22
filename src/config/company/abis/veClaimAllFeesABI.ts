@@ -1,0 +1,138 @@
+
+export const veClaimAllFeesABI = [
+  {
+    type: "error",
+    name: "InvalidTokenId",
+    inputs: [{ type: "uint256", name: "tokenId", internalType: "uint256" }],
+  },
+  {
+    type: "error",
+    name: "NotApproved",
+    inputs: [
+      { type: "address", name: "owner", internalType: "address" },
+      { type: "address", name: "operator", internalType: "address" },
+      { type: "uint256", name: "tokenId", internalType: "uint256" },
+    ],
+  },
+  { type: "error", name: "NotAuthorized", inputs: [] },
+  { type: "error", name: "UserExists", inputs: [] },
+  { type: "error", name: "UserNtFound", inputs: [] },
+  {
+    type: "event",
+    name: "AutoClaimStatus",
+    inputs: [
+      { type: "address", name: "_address", internalType: "address", indexed: true },
+      { type: "bool", name: "_status", internalType: "bool", indexed: false },
+    ],
+    anonymous: false,
+  },
+  {
+    type: "event",
+    name: "Claimed",
+    inputs: [
+      { type: "address", name: "_address", internalType: "address", indexed: true },
+      { type: "uint256", name: "_tokenId", internalType: "uint256", indexed: false },
+      { type: "uint256", name: "_claimable", internalType: "uint256", indexed: false },
+      { type: "uint256", name: "_claimed", internalType: "uint256", indexed: false },
+    ],
+    anonymous: false,
+  },
+  {
+    type: "event",
+    name: "Initialized",
+    inputs: [{ type: "uint8", name: "version", internalType: "uint8", indexed: false }],
+    anonymous: false,
+  },
+  {
+    type: "event",
+    name: "OwnershipTransferred",
+    inputs: [
+      { type: "address", name: "previousOwner", internalType: "address", indexed: true },
+      { type: "address", name: "newOwner", internalType: "address", indexed: true },
+    ],
+    anonymous: false,
+  },
+  {
+    type: "function",
+    stateMutability: "nonpayable",
+    outputs: [],
+    name: "addToAutoClaimAddresses",
+    inputs: [{ type: "address", name: "user", internalType: "address" }],
+  },
+  {
+    type: "function",
+    stateMutability: "view",
+    outputs: [{ type: "address", name: "", internalType: "address" }],
+    name: "autoClaimAddresses",
+    inputs: [{ type: "uint256", name: "", internalType: "uint256" }],
+  },
+  {
+    type: "function",
+    stateMutability: "view",
+    outputs: [{ type: "uint256", name: "", internalType: "uint256" }],
+    name: "autoClaimAddressesLength",
+    inputs: [],
+  },
+  {
+    type: "function",
+    stateMutability: "view",
+    outputs: [{ type: "bool", name: "", internalType: "bool" }],
+    name: "autoClaimStatus",
+    inputs: [{ type: "address", name: "", internalType: "address" }],
+  },
+  {
+    type: "function",
+    stateMutability: "nonpayable",
+    outputs: [],
+    name: "claimFees",
+    inputs: [
+      { type: "address[]", name: "_fees", internalType: "address[]" },
+      { type: "address[][]", name: "_tokens", internalType: "address[][]" },
+      { type: "uint256", name: "_tokenId", internalType: "uint256" },
+    ],
+  },
+  {
+    type: "function",
+    stateMutability: "nonpayable",
+    outputs: [],
+    name: "claimRewards",
+    inputs: [{ type: "address", name: "_address", internalType: "address" }],
+  },
+  {
+    type: "function",
+    stateMutability: "view",
+    outputs: [{ type: "address[]", name: "", internalType: "address[]" }],
+    name: "getAllUsers",
+    inputs: [],
+  },
+  { type: "function", stateMutability: "nonpayable", outputs: [], name: "initialize", inputs: [] },
+  {
+    type: "function",
+    stateMutability: "view",
+    outputs: [{ type: "address", name: "", internalType: "address" }],
+    name: "owner",
+    inputs: [],
+  },
+  {
+    type: "function",
+    stateMutability: "nonpayable",
+    outputs: [],
+    name: "removeFromAutoClaimAddresses",
+    inputs: [{ type: "address", name: "user", internalType: "address" }],
+  },
+  {
+    type: "function",
+    stateMutability: "nonpayable",
+    outputs: [],
+    name: "renounceOwnership",
+    inputs: [],
+  },
+  {
+    type: "function",
+    stateMutability: "nonpayable",
+    outputs: [],
+    name: "transferOwnership",
+    inputs: [{ type: "address", name: "newOwner", internalType: "address" }],
+  },
+];
+
